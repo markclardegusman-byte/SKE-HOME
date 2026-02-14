@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="SKE is your ultimate open-source intelligence hub offering resources, tools, and tutorials for mastering OSINT.">
     <title>Open-Source Intelligence Hub</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
     <style>
         /* Basic Reset */
         * {
@@ -12,29 +17,42 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
-        /* General Styling */
+
+        /* Global Styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             color: #333;
+            background-color: #f4f7fb;
         }
 
-        /* Header */
+        /* Header Styling */
         header {
-            background-color: #333;
+            background-color: #1a202c;
             color: white;
-            padding: 20px;
+            padding: 30px 20px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
         header nav {
-            margin-top: 10px;
+            margin-top: 15px;
         }
         header nav a {
             color: white;
             margin: 0 15px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        header nav a:hover, header nav a:focus {
+            color: #ff6f61;
+            outline: none;
         }
 
         /* Hero Section */
@@ -42,67 +60,127 @@
             background: url('https://via.placeholder.com/1200x500') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 100px 0;
+            padding: 120px 20px;
+            position: relative;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
+            font-weight: 700;
         }
         .hero p {
             font-size: 1.5rem;
+            font-weight: 400;
+            margin-top: 10px;
         }
 
         /* Services Section */
         .services {
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-align: center;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
         }
         .services h2 {
             font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            width: 100%;
         }
         .services .service {
-            display: inline-block;
-            width: 30%;
-            padding: 20px;
+            flex: 1 1 300px;
+            padding: 30px;
             margin: 20px;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .services .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        .services .service h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+        .services .service p {
+            font-size: 1rem;
+            color: #4a5568;
         }
 
         /* About Section */
         .about, .team, .what-we-do, .our-mission {
-            padding: 40px 20px;
+            padding: 60px 20px;
             background-color: #fff;
             text-align: center;
+            margin-top: 40px;
         }
         .about h2, .team h2, .what-we-do h2, .our-mission h2 {
             font-size: 2.5rem;
+            font-weight: 500;
             margin-bottom: 20px;
         }
-
-        /* Team Member Styling */
-        .team-member {
-            margin-top: 20px;
-            font-size: 1.5rem;
-            font-weight: bold;
+        .about p, .what-we-do p, .our-mission p {
+            font-size: 1.2rem;
+            color: #4a5568;
             line-height: 1.8;
         }
 
-        /* What We Do Section */
-        .what-we-do p, .our-mission p {
+        /* Team Section */
+        .team-member {
+            margin-top: 30px;
             font-size: 1.3rem;
+            font-weight: 500;
             line-height: 1.8;
-            margin-top: 10px;
+            color: #2d3748;
         }
 
         /* Footer */
         footer {
-            background-color: #333;
+            background-color: #1a202c;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
+            font-size: 1rem;
+            margin-top: 60px;
         }
+
+        /* Button Styling */
+        .btn {
+            display: inline-block;
+            background-color: #ff6f61;
+            color: white;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #e55a48;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .services .service {
+                flex: 1 1 100%; /* Stacks services on smaller screens */
+                margin: 10px 0;
+            }
+            .about, .team, .what-we-do, .our-mission {
+                padding: 40px 15px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -111,11 +189,10 @@
     <header>
         <h1>Your Ultimate Open-Source Intelligence Hub</h1>
         <nav>
-            <a href="home.html">Home</a>
-            <a href="https://markclardegusman-byte.github.io/SKE-about/about.html" target="_blank">About</a>
-            <a href="https://markclardegusman-byte.github.io/SKE-social/social.html" target="_blank">Social</a>
-            <!-- Updated Secret Link -->
-            <a href="https://markclardegusman-byte.github.io/SKE-SECRET/secret.html" target="_blank">Secret</a>
+            <a href="home.html" aria-label="Home Page">Home</a>
+            <a href="https://markclardegusman-byte.github.io/SKE-about/about.html" target="_blank" aria-label="About Page">About</a>
+            <a href="https://markclardegusman-byte.github.io/SKE-social/social.html" target="_blank" aria-label="Social Page">Social</a>
+            <a href="https://markclardegusman-byte.github.io/SKE-SECRET/secret.html" target="_blank" aria-label="Secret Page">Secret</a>
         </nav>
     </header>
 
@@ -123,12 +200,13 @@
     <section class="hero">
         <h1>Your Success, Our Commitment</h1>
         <p>Delivering exceptional services with a focus on quality and customer satisfaction.</p>
+        <a href="#services" class="btn">Explore Our Services</a>
     </section>
 
     <!-- About Section -->
     <section class="about">
         <h2>About Us</h2>
-        <p>**SKE** was developed by a passionate and skilled team of professionals in digital security, software engineering, web development, and design. Our platform was created with one core mission: to provide comprehensive, accessible resources for mastering open-source intelligence (OSINT) and digital investigation techniques.</p>
+        <p><strong>SKE</strong> was developed by a passionate and skilled team of professionals in digital security, software engineering, web development, and design. Our platform was created with one core mission: to provide comprehensive, accessible resources for mastering open-source intelligence (OSINT) and digital investigation techniques.</p>
     </section>
 
     <!-- What We Do Section -->
@@ -147,22 +225,4 @@
     <section class="team">
         <h2>Meet the Team</h2>
         <div class="team-member">
-            <p><strong>Smiling Akira</strong> – A cybersecurity expert with a knack for solving complex security challenges, Akira’s passion for open-source intelligence has shaped SKE's approach to security and data protection.</p>
-        </div>
-        <div class="team-member">
-            <p><strong>Demonic Khienji</strong> – A software engineer whose deep knowledge of coding and algorithmic design has helped create the backbone of the tools and resources available on the platform. Khienji’s contributions ensure that SKE’s tools are both powerful and user-friendly.</p>
-        </div>
-        <div class="team-member">
-            <p><strong>Director Denji</strong> – A visionary in web development and digital solutions, Denji is the mastermind behind the platform's sleek, intuitive design. His strategic direction has ensured that SKE provides not only technical excellence but also an exceptional user experience.</p>
-        </div>
-        <div class="team-member">
-            <p><strong>Star Prince</strong> – A creative designer with a passion for building engaging, user-centric platforms. Star Prince is responsible for the visual identity and seamless design of the site, ensuring that learning and exploring OSINT tools is as enjoyable as it is effective.</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2006 SKE. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+            <p><strong>Smiling Akira</strong> – A cybersecurity expert with a knack for solving complex security challenges,
